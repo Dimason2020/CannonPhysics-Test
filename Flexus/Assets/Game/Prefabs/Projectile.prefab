@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6844065987439241663}
   - component: {fileID: 2292807166404162197}
   - component: {fileID: -4274243462938717608}
+  - component: {fileID: 1335270018016008850}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -45,12 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc23f46f663449428880582916fa8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileMesh: {fileID: 204177884923548362}
+  randomMeshHandler: {fileID: 1335270018016008850}
   physicsBody: {fileID: -4274243462938717608}
   projectilePool: {fileID: 11400000, guid: b31a4402b0fc3f54e8e00bec2138a4ee, type: 2}
   particlesPool: {fileID: 11400000, guid: 65d71752d2ec83146a42f0267d8082de, type: 2}
   bouncesToExplosion: 2
-  meshDistortion: 0.15
 --- !u!114 &-4274243462938717608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +63,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e485c63b6935248bb220a5c732387b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1335270018016008850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325168672166516758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8242e2f0154e0ce4da62870592477b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileMesh: {fileID: 204177884923548362}
+  meshDistortion: 0.1
 --- !u!1 &1000136425236056517
 GameObject:
   m_ObjectHideFlags: 0
