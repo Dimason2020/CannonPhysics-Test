@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 using Object = UnityEngine.Object;
 
 namespace QFSW.MOP2
@@ -15,7 +16,7 @@ namespace QFSW.MOP2
         [Tooltip("Forces the MOP into singleton mode. This means the MOP will be made scene persistent and will not be destroyed when new scenes are loaded.")]
         [SerializeField] private bool _singletonMode = false;
         [SerializeField] private ObjectPool[] _pools = new ObjectPool[0];
-
+        [Inject] private DiContainer diContainer;
         /// <summary>
         /// Singleton reference to the MOP. Only valid and set if the singleton option is enabled for the MOP.
         /// </summary>
@@ -342,5 +343,10 @@ namespace QFSW.MOP2
             return GetPool(poolName).GetAllActiveObjects();
         }
         #endregion
+
+        public GameObject InjectCreate(GameObject _template, Vector3 position, Quaternion rotation)
+        {
+            return diContainer.InstantiatePrefab(_template, position, rotation, null);
+        }
     }
 }

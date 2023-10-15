@@ -207,7 +207,7 @@ namespace QFSW.MOP2
         private GameObject CreateNewObject() { return CreateNewObject(_template.transform.position, _template.transform.rotation); }
         private GameObject CreateNewObject(Vector3 position, Quaternion rotation)
         {
-            GameObject newObj = Instantiate(_template, position, rotation);
+            GameObject newObj = MasterObjectPooler.Instance.InjectCreate(_template, position, rotation);
             newObj.transform.SetParent(ObjectParent, false);
 
             if (_incrementalInstanceNames)
