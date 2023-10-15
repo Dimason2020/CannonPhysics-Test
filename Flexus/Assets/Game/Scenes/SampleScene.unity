@@ -420,7 +420,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251872238891988929, guid: 9942b2ac867fa314e92d51c3c4b9093d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1251872238891988929, guid: 9942b2ac867fa314e92d51c3c4b9093d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -519,11 +519,11 @@ Transform:
   m_LocalPosition: {x: 0.43678162, y: 0.3971581, z: 7.328716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 705507995}
   - {fileID: 1706028370}
-  - {fileID: 878162984}
+  - {fileID: 705507995}
   - {fileID: 2042399840}
   - {fileID: 21929257}
+  - {fileID: 878162984}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -693,7 +693,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 610815489}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &787176581
 GameObject:
@@ -869,7 +869,7 @@ Transform:
   m_LocalScale: {x: 12, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 610815489}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -1659,7 +1659,7 @@ Transform:
   - {fileID: 1182292753}
   - {fileID: 963194226}
   m_Father: {fileID: 610815489}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1835057195
 GameObject:
@@ -1951,7 +1951,7 @@ GameObject:
   - component: {fileID: 2001588957}
   - component: {fileID: 2001588956}
   m_Layer: 0
-  m_Name: Smoke
+  m_Name: Smoke Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6815,7 +6815,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251872238891988929, guid: 9942b2ac867fa314e92d51c3c4b9093d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1251872238891988929, guid: 9942b2ac867fa314e92d51c3c4b9093d, type: 3}
       propertyPath: m_LocalPosition.x
