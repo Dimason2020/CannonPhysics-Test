@@ -1,3 +1,4 @@
+using QFSW.MOP2;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,10 @@ using Zenject;
 
 public class CannonWeapon : MonoBehaviour, IWeapon
 {
-    [SerializeField] private Projectile projectile;
+    [SerializeField] private ObjectPool projectilePool;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private ParticleSystem shootParticle;
+    [Inject] private MasterObjectPooler masterObjectPooler;
     [Inject] private InputHandler inputHandler;
 
     private void Start()
@@ -17,7 +19,7 @@ public class CannonWeapon : MonoBehaviour, IWeapon
 
     public void Shoot() 
     {
-        Projectile bullet = Instantiate(projectile);
+        Projectile bullet = (Projectile)masterObjectPooler.GetObjectComponent<IPoolable>(projectilePool.PoolName);
         bullet.Init(shootPoint.position, shootPoint.rotation, shootPoint.forward * inputHandler.PowerValue);
 
         shootParticle.Play();

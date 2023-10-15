@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileMesh: {fileID: 204177884923548362}
   physicsBody: {fileID: -4274243462938717608}
+  projectilePool: {fileID: 11400000, guid: b31a4402b0fc3f54e8e00bec2138a4ee, type: 2}
+  particlesPool: {fileID: 11400000, guid: 65d71752d2ec83146a42f0267d8082de, type: 2}
   bouncesToExplosion: 2
   meshDistortion: 0.15
 --- !u!114 &-4274243462938717608

@@ -1,13 +1,20 @@
+using QFSW.MOP2;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IPoolable
 {
+    [Inject] private MasterObjectPooler masterObjectPooler;
     [SerializeField] private MeshFilter projectileMesh;
     [SerializeField] private PhysicsBody physicsBody;
+    [SerializeField] private ObjectPool projectilePool;
+    [SerializeField] private ObjectPool particlesPool;
+
     [SerializeField] private int bouncesToExplosion = 2;
     [SerializeField] private float meshDistortion = 0.1f;
+
     private int collidingCount;
 
     private readonly Vector3[] _vertices = new[]
@@ -21,7 +28,6 @@ public class Projectile : MonoBehaviour
         new Vector3(+0.5f, -0.5f, +0.5f),
         new Vector3(-0.5f, -0.5f, +0.5f),
     };
-
     private readonly int[] _triangles = new int[]
     {
         0, 1, 2, 0, 2, 3,
@@ -81,8 +87,12 @@ public class Projectile : MonoBehaviour
 
     private void Explode()
     {
-        gameObject.SetActive(false);
-        var explosion = ExplosionPool.Instance.GetNew();
-        explosion.transform.position = transform.position;
+        masterObjectPooler.GetObjectComponent<ExplosionParticle>(particlesPool.PoolName, transform.position, Quaternion.identity);
+        Release();
+    }
+
+    public void Release()
+    {
+        masterObjectPooler.Release(gameObject, projectilePool.PoolName);
     }
 }

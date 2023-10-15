@@ -1,12 +1,15 @@
+using QFSW.MOP2;
 using UnityEngine;
 using Zenject;
 
 public class ServicesInstaller : MonoInstaller
 {
-    [SerializeField] private InputHandler _inputHandler;
+    [SerializeField] private MasterObjectPooler masterObjectPooler;
+    [SerializeField] private InputHandler inputHandler;
 
     public override void InstallBindings()
     {
-        Container.Bind<InputHandler>().FromInstance(_inputHandler);
+        Container.Bind<MasterObjectPooler>().FromInstance(masterObjectPooler);
+        Container.Bind<InputHandler>().FromInstance(inputHandler);
     }
 }
