@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileMesh: {fileID: 204177884923548362}
-  meshDistortion: 0.1
+  meshDistortion: 0.2
 --- !u!1 &1000136425236056517
 GameObject:
   m_ObjectHideFlags: 0
