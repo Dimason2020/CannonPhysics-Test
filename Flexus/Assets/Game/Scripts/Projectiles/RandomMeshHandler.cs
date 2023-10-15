@@ -6,7 +6,7 @@ public class RandomMeshHandler : MonoBehaviour
     [SerializeField] private MeshFilter projectileMesh;
     [SerializeField] private float meshDistortion = 0.1f;
 
-    private readonly Vector3[] _vertices = new[]
+    private readonly Vector3[] vertices = new[]
 {
         new Vector3(-0.5f, -0.5f, -0.5f),
         new Vector3(-0.5f, +0.5f, -0.5f),
@@ -17,7 +17,7 @@ public class RandomMeshHandler : MonoBehaviour
         new Vector3(+0.5f, -0.5f, +0.5f),
         new Vector3(-0.5f, -0.5f, +0.5f),
     };
-    private readonly int[] _triangles = new int[]
+    private readonly int[] triangles = new int[]
     {
         0, 1, 2, 0, 2, 3,
         4, 5, 6, 4, 6, 7,
@@ -30,10 +30,10 @@ public class RandomMeshHandler : MonoBehaviour
     public void UpdateMesh()
     {
         Mesh mesh = projectileMesh.mesh;
-        Vector3[] distorted = _vertices
+        Vector3[] distorted = vertices
             .Select(x => x + Random.insideUnitSphere * meshDistortion).ToArray();
 
-        Vector3[] vertices = new Vector3[]
+        Vector3[] newVertices = new Vector3[]
         {
             distorted[0], distorted[1], distorted[2], distorted[3],
             distorted[3], distorted[2], distorted[5], distorted[6],
@@ -43,8 +43,8 @@ public class RandomMeshHandler : MonoBehaviour
             distorted[0], distorted[3], distorted[6], distorted[7],
         };
 
-        mesh.vertices = vertices;
-        mesh.triangles = _triangles;
+        mesh.vertices = newVertices;
+        mesh.triangles = triangles;
         mesh.RecalculateNormals();
     }
 }
