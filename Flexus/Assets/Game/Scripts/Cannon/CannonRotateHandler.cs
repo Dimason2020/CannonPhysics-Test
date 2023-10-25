@@ -1,4 +1,5 @@
 using System;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -10,15 +11,18 @@ public class CannonRotateHandler : MonoBehaviour
     [SerializeField] private float rotationSpeed = 10f;
     [Inject] private InputHandler inputHandler;
 
-    private void Update()
+    private void Start()
     {
-        RotateCannon();
+        Observable.EveryUpdate().Subscribe(_ =>
+        {
+            RotateCannon();
+        });
     }
 
     private void RotateCannon()
     {
-        float moveX = inputHandler.HorizontalInput;
-        float moveY = inputHandler.VerticalInput;
+        float moveX = inputHandler.KeyboardInput.Value.x;
+        float moveY = inputHandler.KeyboardInput.Value.y;
 
         if (moveX != 0 || moveY != 0)
         {
